@@ -10,5 +10,5 @@ script:
   - coverage erase
   - coverage run -m pytest && coverage html
 
-after_succes:
+after_success:
   - codecov
