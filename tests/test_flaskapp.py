@@ -19,10 +19,9 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(resp['answer'],35,'Multiply endpoint failed known answer 7*5 = 35')
 
     def test_touppercase(self):
-        string = self.app.get('/touppercase?s=123')
-        # string = json.loads(response.data.decode())
-        if any(char.isdigit() for char in string):
-            self.assertEqual("Can't upper numbers")
+        result = self.app.get('/touppercase?s=123').data.decode()
+        if any(char.isdigit() for char in result):
+            self.assertEqual("contains digit",result)
 
 
 if __name__ == '__main__':
