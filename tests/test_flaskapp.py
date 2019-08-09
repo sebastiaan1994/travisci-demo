@@ -15,7 +15,7 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_multiply(self):
         response = self.app.get('/multiply?x=5&y=7')
-        resp = json.loads(response.data)
+        resp = json.loads(response.data.decode())
         self.assertEqual(resp['answer'],35,'Multiply endpoint failed known answer 7*5 = 35')
 
 
